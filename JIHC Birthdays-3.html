@@ -1,0 +1,574 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>JIHC Birthdays</title><meta name="claude:viewport-fit-sides" content="cover"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap"><style id="app-style">
+/* Layout: a red-velvet stage with the college logo lit between two curtains, then a calm dark directory of birthdays below. */
+:root{
+  --ink:#070405;
+  --panel:#150c0f;
+  --panel-2:#1e1216;
+  --velvet:#b3121c;
+  --velvet-hi:#e50914;
+  --velvet-btn:#cf0f19;
+  --velvet-deep:#4d060d;
+  --light:#fff5e8;
+  --text:#f4ede8;
+  --muted:#b5a7a3;
+  --line:rgba(255,235,225,.13);
+  --blue:#4aa3ff;
+  --gold:#f0b44c;
+  --lilac:#b9acec;
+  --display:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--ink);color:var(--text);font:15px/1.55 var(--body);-webkit-text-size-adjust:100%}
+body.hasbar{padding-bottom:84px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:50;background:var(--ink)}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.logo .cls-1{fill:#1a1a1a}
+.logo .cls-2{fill:#07f}
+
+/* header */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(7,4,5,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:9px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.badge{width:42px;height:42px;border-radius:50%;background:var(--light);display:grid;place-items:center;flex:none}
+.badge .logo{width:36px;height:36px}
+.brand b{font:800 16px var(--display);letter-spacing:.2em}
+.lang{display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;flex:none}
+.lang button{min-height:34px;min-width:46px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:var(--muted);font:700 12px var(--display);letter-spacing:.12em;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--velvet-btn);color:#fff}
+.lang button:focus-visible,.btn:focus-visible,.chip-b:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--velvet-hi);outline-offset:2px}
+
+/* stage */
+.stage{position:relative;height:clamp(560px,88svh,860px);overflow:hidden;background:#000;isolation:isolate;--open:38%}
+.floor{position:absolute;left:0;right:0;bottom:0;height:170px;z-index:1;background:radial-gradient(70% 100% at 50% 0%,rgba(229,9,20,.6),rgba(229,9,20,.14) 55%,transparent 82%)}
+.aperture{position:absolute;left:50%;bottom:120px;width:min(48vw,440px);height:calc(100% - 190px);transform:translateX(-50%);z-index:1;background:linear-gradient(0deg,rgba(255,240,222,.95),rgba(255,240,222,.4) 45%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 28%,#000 72%,transparent);mask-image:linear-gradient(90deg,transparent,#000 28%,#000 72%,transparent);animation:glow 2s ease .8s both}
+.curtain{position:absolute;top:0;bottom:0;z-index:2;width:var(--open);animation:open 2.4s cubic-bezier(.7,0,.2,1) .35s both}
+.curtain.l{left:0;clip-path:polygon(0 0,100% 0,82% 100%,0 100%);background:
+  repeating-linear-gradient(90deg,rgba(0,0,0,.42) 0,rgba(0,0,0,0) 12px,rgba(255,130,130,.12) 22px,rgba(0,0,0,.3) 36px,rgba(0,0,0,.42) 46px),
+  linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 78%,rgba(0,0,0,.4)),
+  linear-gradient(90deg,var(--velvet-deep),var(--velvet) 62%,var(--velvet-hi))}
+.curtain.r{right:0;clip-path:polygon(0 0,100% 0,100% 100%,18% 100%);background:
+  repeating-linear-gradient(90deg,rgba(0,0,0,.42) 0,rgba(0,0,0,0) 12px,rgba(255,130,130,.12) 22px,rgba(0,0,0,.3) 36px,rgba(0,0,0,.42) 46px),
+  linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 78%,rgba(0,0,0,.4)),
+  linear-gradient(270deg,var(--velvet-deep),var(--velvet) 62%,var(--velvet-hi))}
+.center{position:relative;z-index:3;height:100%;display:grid;grid-template-rows:auto 1fr auto;justify-items:center;align-items:center;padding-block:34px 44px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));text-align:center}
+.kicker{margin:0;padding-left:.55em;font:600 12px var(--display);letter-spacing:.55em;text-transform:uppercase;color:#ddd3ce;animation:fade 1.2s ease 1.5s both}
+.disc{width:clamp(210px,30vw,340px);aspect-ratio:1;max-width:100%;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 38%,#fff,#fff6ea 62%,#ffe4c4);box-shadow:0 0 0 1px rgba(255,255,255,.4),0 0 90px 18px rgba(255,236,214,.42),0 0 220px 60px rgba(255,200,150,.2);animation:rise 1.6s ease .9s both}
+.disc .logo{width:93%;height:93%}
+.tag{margin:0;font:500 clamp(20px,3.2vw,30px)/1.25 var(--body);color:#fff;text-shadow:0 2px 28px #000;animation:fade 1.2s ease 1.7s both}
+.tag em{font-style:normal;color:var(--velvet-hi)}
+@keyframes open{from{width:52%}to{width:var(--open)}}
+@keyframes glow{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media (max-width:700px){.stage{--open:24%}.kicker{letter-spacing:.4em}}
+@media (prefers-reduced-motion:reduce){.curtain,.aperture,.disc,.kicker,.tag{animation:none!important}}
+
+/* sections */
+.sec{padding-block:48px 0}
+.eyebrow{font:700 12px var(--display);letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.h2{margin:0 0 18px;font:800 clamp(24px,4vw,34px)/1.1 var(--display);letter-spacing:-.01em;text-wrap:balance}
+.big{margin:10px 0 14px;font:800 clamp(28px,5vw,44px)/1.1 var(--display);letter-spacing:-.01em;text-wrap:balance}
+.muted{color:var(--muted)}
+.nextline{margin:0;color:var(--muted)}
+.nextline b{color:var(--text);font-weight:600}
+.today-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:14px;margin-top:16px}
+.tcard{position:relative;overflow:hidden;padding:24px 22px 22px;border-radius:14px;border:1px solid rgba(229,9,20,.55);background:linear-gradient(180deg,#2b0b10,#170a0d);display:flex;flex-direction:column;gap:10px;min-width:0}
+.tcard::before{content:"";position:absolute;left:10%;right:10%;top:-60%;height:130%;background:radial-gradient(closest-side,rgba(255,236,214,.2),transparent);pointer-events:none}
+.tcard>*{position:relative}
+.tcard .hb{font:700 12px var(--display);letter-spacing:.26em;text-transform:uppercase;color:var(--velvet-hi)}
+.tcard h3{margin:0;font:800 clamp(22px,3vw,28px)/1.15 var(--display);overflow-wrap:anywhere}
+.tcard p{margin:0;color:var(--muted)}
+.tcard .chips-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:10px}
+.card{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line)}
+.card.is-today{border-color:rgba(229,9,20,.7);background:#220b10}
+.dn{display:flex;flex-direction:column;align-items:center;line-height:1}
+.dn b{font:800 26px var(--display);font-variant-numeric:tabular-nums}
+.dn span{margin-top:4px;font:600 10px var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.is-soon .dn b,.is-today .dn b{color:var(--velvet-hi)}
+.who{min-width:0}
+.who h4{margin:0;font:600 15px/1.3 var(--body);overflow-wrap:anywhere}
+.who p{margin:2px 0 0;color:var(--muted);font-size:13px;overflow-wrap:anywhere}
+.meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.when{font-size:12px;color:var(--muted);white-space:nowrap}
+.is-today .when{color:var(--velvet-hi);font-weight:600}
+.chip{display:inline-block;padding:3px 10px;border-radius:999px;font:600 11px var(--body);letter-spacing:.02em;border:1px solid currentColor;white-space:nowrap}
+.t-student{color:var(--blue)}
+.t-teacher{color:var(--gold)}
+.t-staff{color:var(--lilac)}
+.acts{display:flex;gap:6px}
+.acts button{min-height:30px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:var(--panel-2);color:var(--text);font-size:12px;cursor:pointer}
+.acts button.del{color:#ff8a8a}
+.ctl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:6px}
+.ctl input[type="search"]{flex:1 1 240px;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip-b{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:600 13px var(--body);cursor:pointer}
+.chip-b i{font-style:normal;margin-left:6px;opacity:.7;font-variant-numeric:tabular-nums}
+.chip-b[aria-pressed="true"]{background:var(--text);color:var(--ink);border-color:var(--text)}
+.mh{display:flex;align-items:baseline;gap:12px;margin:34px 0 12px}
+.mh h3{margin:0;font:800 clamp(24px,4.5vw,36px)/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.mh span{color:var(--muted);font:600 13px var(--body);font-variant-numeric:tabular-nums}
+.mh.cur h3{color:var(--velvet-hi)}
+.empty{padding:40px 22px;border:1px dashed var(--line);border-radius:14px;text-align:center;color:var(--muted)}
+.empty p{margin:0;max-width:46ch;margin-inline:auto}
+
+/* admin */
+.admin{margin-top:28px;padding:20px;border-radius:14px;border:1px dashed rgba(229,9,20,.65);background:var(--panel)}
+.admin-h{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.pill{padding:4px 12px;border-radius:999px;background:var(--velvet-btn);color:#fff;font:700 11px var(--display);letter-spacing:.18em;text-transform:uppercase}
+.admin h3{margin:0;font:700 16px var(--display)}
+.fields{display:grid;gap:12px}
+.f3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:12px}
+label.f{display:flex;flex-direction:column;gap:6px;font:600 12px var(--body);color:var(--muted);min-width:0}
+input,select,textarea{width:100%;min-height:44px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#0d0709;color:var(--text)}
+textarea{min-height:110px;resize:vertical;line-height:1.5}
+.err{min-height:20px;margin:0;color:#ff8a8a;font-size:13px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{min-height:44px;padding:0 18px;border-radius:10px;border:1px solid var(--line);background:#261519;color:var(--text);font:600 14px var(--body);cursor:pointer}
+.btn.primary{background:var(--velvet-btn);border-color:var(--velvet-btn);color:#fff}
+.btn[disabled]{opacity:.6;cursor:default}
+.sep{height:1px;background:var(--line);margin:20px 0}
+.help{margin:0 0 10px;color:var(--muted);font-size:13px}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:#1b0b0f;border-top:1px solid rgba(229,9,20,.7)}
+.bar-t{font-weight:600}
+.bar-b{display:flex;gap:10px}
+.foot{padding-block:56px 32px;color:var(--muted);font:600 12px var(--display);letter-spacing:.26em;text-transform:uppercase;text-align:center}
+</style><div id="root"></div><script type="application/json" id="app-data">{"people":[{"id":"dfympr","n":"Жамалбек Мереке","m":1,"d":6,"t":"staff","g":"Tutor"},{"id":"037ub1","n":"Туленов Адилжан","m":1,"d":7,"t":"student","g":"2D-1"},{"id":"0hw7m4","n":"Жайлыш Мадина","m":1,"d":12,"t":"teacher","g":"Math Teacher"},{"id":"iheih8","n":"Бекхалиева Назкен","m":1,"d":16,"t":"teacher","g":"English teacher"},{"id":"0oqu5f","n":"Жұмақулова Гүлмира","m":1,"d":20,"t":"staff","g":"Canteen Manager"},{"id":"3xcxft","n":"Ерғали Айдос","m":1,"d":21,"t":"teacher","g":"Physics teacher"},{"id":"5520wf","n":"Төлен Бибі","m":1,"d":27,"t":"teacher","g":"Biology and Chemistry Teacher"},{"id":"9gmfhn","n":"Эмре Аккая","m":2,"d":1,"t":"teacher","g":"Turkish Teacher"},{"id":"5qmvxe","n":"Жақсылық Жан","m":2,"d":4,"t":"teacher","g":"IT Teacher"},{"id":"r1uoqq","n":"Шахбазова Феруза","m":2,"d":14,"t":"staff","g":"Custodian"},{"id":"v89ysn","n":"Саулебекова Данагуль","m":2,"d":17,"t":"teacher","g":"English teacher"},{"id":"be7448","n":"Орынбасар Эвелина","m":2,"d":24,"t":"student","g":"2D-1"},{"id":"npu6ut","n":"Әбзелбек Ағасұлтан","m":2,"d":29,"t":"teacher","g":"Math teacher"},{"id":"jpnnva","n":"Амангелді Ақбота","m":3,"d":2,"t":"student","g":"2D-1"},{"id":"l3vloo","n":"Амангелді Зейнеп","m":3,"d":4,"t":"teacher","g":"PE Teacher"},{"id":"e1393i","n":"Отешево Ульфия","m":3,"d":8,"t":"staff","g":""},{"id":"qrzulh","n":"Бимбетова Қарлығаш","m":3,"d":14,"t":"staff","g":"Security Staff"},{"id":"886vnt","n":"Курманбаева Гүлзада","m":3,"d":16,"t":"teacher","g":"Қазақ тілі және әдебиет мұғалімі"},{"id":"2d6wxg","n":"Қойшыбеков Ержан","m":3,"d":21,"t":"teacher","g":"Physics Teacher"},{"id":"k78d1f","n":"Жолдыбаева Тамара","m":3,"d":31,"t":"teacher","g":"Руский язык"},{"id":"c4fshb","n":"Шыман Байбек","m":4,"d":22,"t":"teacher","g":"IT teacher"},{"id":"m3xx9a","n":"Анарбеков Алмаз","m":5,"d":6,"t":"teacher","g":"IT teacher"},{"id":"qy17r0","n":"Құтжан Аружан","m":5,"d":19,"t":"teacher","g":"IT Teacher"},{"id":"2a83q0","n":"Туранова Фатима","m":5,"d":22,"t":"staff","g":"Custodian"},{"id":"xb2p1b","n":"Тебенова Гульзира","m":6,"d":1,"t":"staff","g":"Kitchen Staff"},{"id":"ohi59n","n":"Абилов Нұржан","m":6,"d":3,"t":"teacher","g":"English Teacher"},{"id":"pl05bu","n":"Умурзакова Фатима","m":6,"d":8,"t":"staff","g":"Kitchen Staff"},{"id":"4rp4n2","n":"Турапов Жакыпжан","m":6,"d":13,"t":"teacher","g":"НВП мұғалімі"},{"id":"uenl6w","n":"Қамбарбек Гүлсезім","m":6,"d":19,"t":"student","g":"2D-1"},{"id":"5cinsk","n":"Оспанова Жансұлу","m":6,"d":19,"t":"staff","g":"Kitchen Angel"},{"id":"gzvwop","n":"Төребекова Гүлсая","m":7,"d":3,"t":"teacher","g":"IT teacher"},{"id":"kp3ylh","n":"Салканова Нұрдана","m":7,"d":7,"t":"teacher","g":"Economics Teacher"},{"id":"ftzuds","n":"Мамраимова Айжан","m":7,"d":10,"t":"staff","g":"Accounting Staff"},{"id":"e5qq5a","n":"Абдрахимова Диана","m":7,"d":11,"t":"teacher","g":"IT teacher"},{"id":"jfk1tt","n":"Бекбау Жанерке","m":7,"d":12,"t":"staff","g":"Secretary"},{"id":"w2ycvc","n":"Джанаев Ғазизбек","m":8,"d":6,"t":"teacher","g":"English Teacher"},{"id":"jb45yc","n":"Кашкеева Қаламқас","m":8,"d":9,"t":"staff","g":"Kitchen Staff"},{"id":"fbsb8w","n":"Ибраимова Индира","m":8,"d":26,"t":"staff","g":"Kitchen Staff"},{"id":"6y2lnx","n":"Әкімбай Шапағат","m":9,"d":8,"t":"teacher","g":"Math teacher"},{"id":"4s6e68","n":"Тұрар Қарлығаш","m":9,"d":10,"t":"teacher","g":"Accounting Teacher"},{"id":"rxrm4y","n":"Болтаева Дариға","m":9,"d":11,"t":"staff","g":"Kitchen Staff"},{"id":"yg8to4","n":"Өксікбай Нұрдос","m":9,"d":11,"t":"staff","g":"Tutor"},{"id":"iljjk7","n":"Нұржабай Асель","m":9,"d":17,"t":"student","g":"2D-1"},{"id":"cc31r8","n":"Алтынбекова Шынар","m":9,"d":28,"t":"teacher","g":"Accounting"},{"id":"qucsn0","n":"Мырзахмет Ербол","m":10,"d":1,"t":"staff","g":"Security Staff"},{"id":"npamnu","n":"Тулегенова Ғайша","m":10,"d":7,"t":"teacher","g":"Қазақстан тарихы мұғалімі"},{"id":"0j1dzt","n":"Шәуен Нүрасыл","m":10,"d":14,"t":"staff","g":"Tutor"},{"id":"0ydicj","n":"Cабыр Нұрай","m":10,"d":22,"t":"student","g":"2D-1"},{"id":"rf3ao1","n":"Бекбосын Алима Саятқызы","m":10,"d":24,"t":"student","g":"2D-1"},{"id":"wp705b","n":"Бердиева Айжан","m":10,"d":25,"t":"teacher","g":"Accounting Teacher"},{"id":"kv7b2w","n":"Шахбазова Шахсанам","m":10,"d":25,"t":"staff","g":"Custodian"},{"id":"9qlq2m","n":"Жұнтай Досжан","m":10,"d":26,"t":"teacher","g":"Geography teacher"},{"id":"dnqeey","n":"Сүйерхан Ғазиз","m":10,"d":30,"t":"student","g":"2D-1"},{"id":"5y9yh7","n":"Мұрат Айкен","m":11,"d":2,"t":"student","g":"2D-1"},{"id":"77f4ay","n":"Тилентаев Қанат","m":11,"d":11,"t":"teacher","g":"PE Teacher"},{"id":"d61ehe","n":"Әмірбек Асима","m":11,"d":24,"t":"student","g":"2D-1"},{"id":"ly392p","n":"Қуантқан Камила","m":11,"d":24,"t":"teacher","g":"English teacher"},{"id":"ss87kc","n":"Әділбек Олжабек","m":11,"d":25,"t":"teacher","g":"IT teacher"},{"id":"hfstfl","n":"Сүттібай Амаль","m":11,"d":25,"t":"student","g":"2D-1"},{"id":"x84u7u","n":"Ахмет Ержан","m":12,"d":2,"t":"teacher","g":"History Teacher"},{"id":"p7yrm9","n":"Ноктұрханова Құндыз","m":12,"d":4,"t":"teacher","g":"IT Teacher"}]}</script><script id="app-script">
+(function () {
+  'use strict';
+
+  var LOGO = `<svg class="logo" viewBox="0 0 155.55 156.19" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JIHC"><path class="cls-1" d="M13.94,58.13A4.93,4.93,0,0,1,17,60a4.08,4.08,0,0,1,.37,3.42,4.58,4.58,0,0,1-1.93,3,4.36,4.36,0,0,1-3.42.38l-.16,0,.68-2.77a4.06,4.06,0,0,0,.7.09,1.84,1.84,0,0,0,.67-.09,1.5,1.5,0,0,0,.57-.38,1.62,1.62,0,0,0,.35-.72,1.29,1.29,0,0,0-.22-1.25A2.12,2.12,0,0,0,13.5,61l-8-2,.68-2.77Z"/><path class="cls-1" d="M18.57,52.67l1.53,1.56L18.78,57,9.67,47.28,11,44.53l13.28,1-1.33,2.8-2.17-.21Zm-1.93-1.89,1.42-3-2.46-.26-2.47-.25Z"/><path class="cls-1" d="M18.08,32.91l6.51,1-2.23-6.17,2.09-2.54L34,33l-1.81,2.21L25.87,30,28,36l-.75.92L21,36l6.35,5.22-1.82,2.2-9.58-7.87Z"/><path class="cls-1" d="M36.83,30.68l-7.45-9.92,4.67-3.5a6,6,0,0,1,1.25-.74,3.46,3.46,0,0,1,1.3-.3,2.74,2.74,0,0,1,1.27.29,3.36,3.36,0,0,1,1.16,1,3.21,3.21,0,0,1,.6,1.32,2.48,2.48,0,0,1-.15,1.41,2.74,2.74,0,0,1,1.77.07,3.88,3.88,0,0,1,2.22,3A3.52,3.52,0,0,1,43.18,25a5.24,5.24,0,0,1-1,1.47,11.37,11.37,0,0,1-1.37,1.24Zm-.6-8.91a3.19,3.19,0,0,0,1-1.07,1.15,1.15,0,0,0-.6-1.48.89.89,0,0,0-.51,0,1.59,1.59,0,0,0-.52.2q-.27.16-.54.36l-1.82,1.37L34.62,23Zm1.34,5.13,1.72-1.29A8.92,8.92,0,0,0,40,25a3.15,3.15,0,0,0,.48-.6,1.17,1.17,0,0,0,.15-.63,1.27,1.27,0,0,0-.28-.67,1,1,0,0,0-1.08-.42,2.11,2.11,0,0,0-.61.26c-.21.13-.43.28-.64.44l-2,1.48Z"/><path class="cls-1" d="M49,14.43l.21-2.94c.07-1,.14-2,.22-2.94l2.93-1.36-1,9,2,4.19-2.59,1.2-1.94-4.18-7.59-5.07,3-1.39Z"/><path class="cls-1" d="M62.16,14.67,68,13.28l.6,2.51-8.63,2L57.11,5.76l2.78-.66Z"/><path class="cls-1" d="M87.27,15.82l-2.84-.34L85.88,3.16l2.84.34Z"/><path class="cls-1" d="M97.28,5.13l3.12,9,2.2-7.36,2.74.82-3.55,11.89-2.57-.77L96,9.75l-2.18,7.31-2.74-.82L94.66,4.35Z"/><path class="cls-1" d="M113.78,11.55l1,9.42,3.85-6.63,2.47,1.43L114.82,26.5l-2.32-1.35-1-9.41-3.83,6.59-2.46-1.43,6.23-10.73Z"/><path class="cls-1" d="M130.47,23.46A7,7,0,0,1,132,25.55a5.77,5.77,0,0,1,.54,2.28,5.67,5.67,0,0,1-.47,2.3,7,7,0,0,1-1.46,2.17,7.31,7.31,0,0,1-2.09,1.57,6,6,0,0,1-2.31.6,5.6,5.6,0,0,1-2.34-.39,6.55,6.55,0,0,1-2.2-1.46,6.82,6.82,0,0,1-1.56-2.13,5.47,5.47,0,0,1,0-4.59,7.36,7.36,0,0,1,1.46-2.16,7.08,7.08,0,0,1,2.1-1.56,5.85,5.85,0,0,1,2.3-.59,5.57,5.57,0,0,1,2.32.42A6.75,6.75,0,0,1,130.47,23.46Zm-6.77,2.28a4.79,4.79,0,0,0-.81,1.15,3.48,3.48,0,0,0-.37,1.28,3,3,0,0,0,.18,1.32,3.47,3.47,0,0,0,.87,1.28,3.17,3.17,0,0,0,1.27.77,2.93,2.93,0,0,0,1.31.09,3.67,3.67,0,0,0,1.26-.45,4.61,4.61,0,0,0,1.07-.85,4.8,4.8,0,0,0,.79-1.1,3.48,3.48,0,0,0,.4-1.27,3,3,0,0,0-1-2.6,3.4,3.4,0,0,0-1.29-.8,3.2,3.2,0,0,0-1.33-.11,3.67,3.67,0,0,0-1.25.44A5,5,0,0,0,123.7,25.74Z"/><path class="cls-1" d="M142.65,38.62l1.74,2.57-13,2.94-1.61-2.38,7.57-10.94,1.76,2.6L133.6,41Z"/><path class="cls-1" d="M137.64,51.2l-2.19.08-1.16-2.86,13.33-.17,1.15,2.82-9.66,9.16-1.17-2.87,1.62-1.46Zm2.7-.16,1.26,3.08,1.85-1.64,1.85-1.65Z"/><path class="cls-1" d="M148.75,58.81l2.56-.51,2,10.23-2.56.51-.73-3.72-9.61,1.91-.56-2.8,9.61-1.91Z"/><path class="cls-1" d="M141.36,76.52l-.13-2.85,12.39-.6.13,2.86Z"/><path class="cls-1" d="M153.36,87.45a6.85,6.85,0,0,1-.75,2.49,5.49,5.49,0,0,1-1.51,1.79,5.65,5.65,0,0,1-2.13,1,7.24,7.24,0,0,1-2.61.13,7.53,7.53,0,0,1-2.5-.75A6.25,6.25,0,0,1,142,90.62a5.68,5.68,0,0,1-1.08-2.12,6.54,6.54,0,0,1-.13-2.63,6.77,6.77,0,0,1,.77-2.53,5.66,5.66,0,0,1,1.54-1.78,5.75,5.75,0,0,1,2.14-1,7.22,7.22,0,0,1,2.6-.11,7,7,0,0,1,2.51.75,5.92,5.92,0,0,1,1.84,1.5,5.55,5.55,0,0,1,1,2.12A7,7,0,0,1,153.36,87.45Zm-5.87-4.08a5,5,0,0,0-1.4,0,3.63,3.63,0,0,0-1.25.47,3.11,3.11,0,0,0-1,.93,3.46,3.46,0,0,0-.51,1.46,3.11,3.11,0,0,0,.13,1.48,3.07,3.07,0,0,0,.71,1.11,3.66,3.66,0,0,0,1.11.74,5,5,0,0,0,2.68.33,3.32,3.32,0,0,0,1.25-.43,3,3,0,0,0,1.49-2.36,3.26,3.26,0,0,0-.13-1.52,2.92,2.92,0,0,0-.7-1.13,3.55,3.55,0,0,0-1.1-.74A4.7,4.7,0,0,0,147.49,83.37Z"/><path class="cls-1" d="M150,101.92l-9.13,2.51,7.19,2.69-1,2.67-11.61-4.35.94-2.51,9.1-2.58-7.14-2.67,1-2.67L151,99.36Z"/><path class="cls-1" d="M129.61,126.48,126.06,130l3.51,3.55-2,2-8.71-8.83,2-2,3.4,3.44,3.56-3.5-3.4-3.44,2-2,8.71,8.83-2,2Z"/><path class="cls-1" d="M113.31,130.57l2.34-1.63,7.11,10.16-2.34,1.64Z"/><path class="cls-1" d="M110.73,139.39a5.8,5.8,0,0,0-.76-1.18,3.25,3.25,0,0,0-1-.83,2.8,2.8,0,0,0-1.27-.31,3.33,3.33,0,0,0-1.48.37,3.74,3.74,0,0,0-.79.49,2.5,2.5,0,0,0-.58.64,2,2,0,0,0-.2,1.69l2.74-1.3,1,2.13L103,143.64c-.2-.42-.39-.84-.56-1.26a11,11,0,0,1-.41-1.27,6.34,6.34,0,0,1-.17-1.29,4.93,4.93,0,0,1,.15-1.31,4.8,4.8,0,0,1,1.08-2,6.25,6.25,0,0,1,2-1.49,7.09,7.09,0,0,1,2.54-.7,5.28,5.28,0,0,1,2.29.34,5.36,5.36,0,0,1,2,1.29,7.79,7.79,0,0,1,1.48,2.15,7.9,7.9,0,0,1,.75,2.55,5.45,5.45,0,0,1-.22,2.33,5.2,5.2,0,0,1-1.19,2,6.85,6.85,0,0,1-2.15,1.52,6.77,6.77,0,0,1-1.87.59,5.1,5.1,0,0,1-1.83,0,4.42,4.42,0,0,1-1.67-.72,5,5,0,0,1-1.37-1.49l2.53-1.2a1.94,1.94,0,0,0,1.34.81,3.09,3.09,0,0,0,1.73-.32,3.25,3.25,0,0,0,1.2-.94,2.82,2.82,0,0,0,.53-1.19,3.61,3.61,0,0,0,0-1.31A6,6,0,0,0,110.73,139.39Z"/><path class="cls-1" d="M96,146.33l-4.88,1.07,1.07,4.88-2.79.61-2.66-12.11,2.79-.62,1,4.73,4.88-1.07-1-4.73,2.79-.61,2.66,12.11-2.79.62Z"/><path class="cls-1" d="M66.81,146.41a5.72,5.72,0,0,0,.11-1.37,3.64,3.64,0,0,0-.3-1.28,2.77,2.77,0,0,0-.78-1,3.44,3.44,0,0,0-3.17-.52,2.16,2.16,0,0,0-1.13,1.15l-2.69-.57A4.54,4.54,0,0,1,59.8,141a4.4,4.4,0,0,1,1.47-1.11,5,5,0,0,1,1.82-.48,6.91,6.91,0,0,1,2,.13,6.84,6.84,0,0,1,2.43,1,5.28,5.28,0,0,1,2.34,3.85,7.66,7.66,0,0,1-.14,2.63,7.29,7.29,0,0,1-.94,2.43,5.68,5.68,0,0,1-1.59,1.71A5.19,5.19,0,0,1,65,152a6.7,6.7,0,0,1-2.59-.07,7.34,7.34,0,0,1-1.88-.67,5.17,5.17,0,0,1-1.42-1.14,4.54,4.54,0,0,1-.86-1.61,5.17,5.17,0,0,1-.13-2.07l2.65.56a2.4,2.4,0,0,0,.56,1.52,2.88,2.88,0,0,0,1.6.83,3.12,3.12,0,0,0,1.49,0,2.82,2.82,0,0,0,1.12-.6,3.6,3.6,0,0,0,.78-1.05A5.29,5.29,0,0,0,66.81,146.41Z"/><path class="cls-1" d="M46.45,146.57a7,7,0,0,1-2.14-1.5,5.39,5.39,0,0,1-1.23-2,5.49,5.49,0,0,1-.29-2.33,7.22,7.22,0,0,1,.69-2.52A7.3,7.3,0,0,1,45,136.09a5.69,5.69,0,0,1,2-1.31,5.62,5.62,0,0,1,2.35-.38,6.72,6.72,0,0,1,2.55.69A7.14,7.14,0,0,1,54,136.61,5.55,5.55,0,0,1,55.5,141a7.23,7.23,0,0,1-.7,2.51,7,7,0,0,1-1.5,2.15,5.87,5.87,0,0,1-2,1.29,5.69,5.69,0,0,1-2.34.34A7.2,7.2,0,0,1,46.45,146.57Zm5.69-4.32a4.71,4.71,0,0,0,.41-1.34,3.29,3.29,0,0,0-.06-1.33,3.06,3.06,0,0,0-.59-1.2,3.51,3.51,0,0,0-1.22-.94,3,3,0,0,0-2.73,0,3.6,3.6,0,0,0-1,.83,4.68,4.68,0,0,0-.75,1.14,4.9,4.9,0,0,0-.4,1.3,3.5,3.5,0,0,0,0,1.33,3.27,3.27,0,0,0,.57,1.21,3.09,3.09,0,0,0,1.21.94,3.38,3.38,0,0,0,1.49.34,3,3,0,0,0,1.28-.31,3.56,3.56,0,0,0,1.05-.82A4.42,4.42,0,0,0,52.14,142.25Z"/><path class="cls-1" d="M39.8,131.09,35,127.46l1.56-2,7.06,5.35-7.49,9.89-2.28-1.73Z"/><path class="cls-1" d="M30.58,122.93l-4-4.46,1.92-1.73,5.94,6.58-9.21,8.31-1.91-2.12Z"/><path class="cls-1" d="M11.4,113l2.24-1.36,3.24,5.35,2-1.23-2.75-4.54,2.17-1.32,2.75,4.54,2-1.18-3.24-5.36L22,106.52l4.71,7.79-10.61,6.43Z"/><path class="cls-1" d="M14.06,103.65a5.4,5.4,0,0,0,1.25-.62,3.33,3.33,0,0,0,.94-.93,2.85,2.85,0,0,0,.45-1.23,3.37,3.37,0,0,0-.21-1.52,3.53,3.53,0,0,0-.4-.83,2.43,2.43,0,0,0-.58-.65,1.89,1.89,0,0,0-.75-.37,2,2,0,0,0-.9,0l1,2.86-2.23.78-1.95-5.61c.44-.16.88-.29,1.32-.42a10.52,10.52,0,0,1,1.31-.27,6.19,6.19,0,0,1,1.29,0,4.47,4.47,0,0,1,1.29.29,4.89,4.89,0,0,1,1.86,1.29A6.17,6.17,0,0,1,19,98.55a6.89,6.89,0,0,1,.42,2.6,5.43,5.43,0,0,1-.58,2.25,5.62,5.62,0,0,1-1.49,1.79,8.42,8.42,0,0,1-4.93,1.71,5.58,5.58,0,0,1-2.29-.47A5.37,5.37,0,0,1,8.29,105,7.1,7.1,0,0,1,7,102.72a6.54,6.54,0,0,1-.38-1.91A5.06,5.06,0,0,1,6.87,99a4.53,4.53,0,0,1,.89-1.58,5,5,0,0,1,1.63-1.2l.92,2.65a2,2,0,0,0-1,1.24,3.07,3.07,0,0,0,.13,1.75,3.2,3.2,0,0,0,.8,1.3,2.72,2.72,0,0,0,1.13.66,3.74,3.74,0,0,0,1.3.13A5.51,5.51,0,0,0,14.06,103.65Z"/><path class="cls-1" d="M3.06,82.76l2.59-.33.78,6.21,2.37-.3-.66-5.27,2.52-.31L11.32,88l2.28-.29-.78-6.21,2.55-.32,1.14,9L4.2,91.8Z"/><circle class="cls-2" cx="91.39" cy="35.03" r="4.44"/><circle class="cls-2" cx="79.95" cy="78.65" r="7.5"/><path class="cls-2" d="M80.44,34.91h0a2.71,2.71,0,0,1-2.39,2.68,39.34,39.34,0,0,0-12.46,3.72A42,42,0,0,0,44.31,63.74,37.54,37.54,0,0,0,45.77,93.9a35.82,35.82,0,0,0,16.44,16.61,2.82,2.82,0,0,1,1.59,3.22A2.68,2.68,0,0,1,60,115.44,41.14,41.14,0,0,1,40.91,96.26,42.86,42.86,0,0,1,39.27,61.8a47.45,47.45,0,0,1,24-25.35,45,45,0,0,1,14.18-4.23A2.7,2.7,0,0,1,80.44,34.91Z"/><path class="cls-2" d="M87.84,118.52a2.7,2.7,0,0,1-.66-5.32,36.39,36.39,0,0,0,6.95-2.53A31.94,31.94,0,0,0,108.93,68,28.15,28.15,0,0,0,71.38,55a24.48,24.48,0,0,0-7,5,2.7,2.7,0,1,1-3.88-3.75A30,30,0,0,1,69,50.14a33.56,33.56,0,0,1,44.77,15.54,37.36,37.36,0,0,1-17.3,49.85,42.63,42.63,0,0,1-8,2.91A3.14,3.14,0,0,1,87.84,118.52Z"/><path class="cls-2" d="M79.5,105.66A27.16,27.16,0,0,1,55.06,90.39,31.26,31.26,0,0,1,53,84.68a2.7,2.7,0,1,1,5.24-1.32A24.78,24.78,0,0,0,59.93,88a21.74,21.74,0,0,0,29,10,19,19,0,0,0,8.81-25.4l-.07-.13a2.7,2.7,0,1,1,4.72-2.62,5.21,5.21,0,0,1,.24.47A24.39,24.39,0,0,1,91.27,103,26.89,26.89,0,0,1,79.5,105.66Z"/><circle class="cls-2" cx="56.06" cy="70.35" r="4.44"/><circle class="cls-2" cx="74.16" cy="117.01" r="4.44"/></svg>`;
+
+  var MONTHS = {
+    kk: {
+      n: ['Қаңтар','Ақпан','Наурыз','Сәуір','Мамыр','Маусым','Шілде','Тамыз','Қыркүйек','Қазан','Қараша','Желтоқсан'],
+      s: ['қаң','ақп','нау','сәу','мам','мау','шіл','там','қыр','қаз','қар','жел'],
+      g: ['қаңтар','ақпан','наурыз','сәуір','мамыр','маусым','шілде','тамыз','қыркүйек','қазан','қараша','желтоқсан']
+    },
+    ru: {
+      n: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+      s: ['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'],
+      g: ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря']
+    },
+    en: {
+      n: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+      s: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+      g: ['January','February','March','April','May','June','July','August','September','October','November','December']
+    }
+  };
+  var WEEK = {
+    kk: ['жексенбі','дүйсенбі','сейсенбі','сәрсенбі','бейсенбі','жұма','сенбі'],
+    ru: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+    en: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+  };
+  var DIM = [31,29,31,30,31,30,31,31,30,31,30,31];
+
+  var L = {
+    kk: {
+      kicker: 'Туған күндер',
+      tag: 'Бүгін кімнің <em>мерекесі</em>?',
+      today: 'Бүгін', noToday: 'Бүгін туған күн жоқ', nextUp: 'Келесі',
+      hb: 'Туған күніңмен!',
+      todayW: 'бүгін', tomorrowW: 'ертең', inDays: '{n} күннен кейін',
+      soon: 'Жақын 30 күнде', soonEmpty: 'Алдағы 30 күнде туған күн жоқ.',
+      all: 'Барлық туған күндер', search: 'Аты-жөні бойынша іздеу', none: 'Ештеңе табылмады.',
+      allRoles: 'Барлығы',
+      r_student: 'Студент', r_teacher: 'Мұғалім', r_staff: 'Қызметкер',
+      p_student: 'Студенттер', p_teacher: 'Мұғалімдер', p_staff: 'Қызметкерлер',
+      emptyPublic: 'Тізім әзірше бос. Туған күндер жақында қосылады.',
+      emptyOwner: 'Тізім бос. Жоғарыдағы панельден алғашқы туған күнді қосыңыз.',
+      footer: 'Колледж қауымының туған күндері',
+      adminMode: 'Әкімші режимі', addTitle: 'Туған күн қосу', editTitle: 'Жазбаны өзгерту',
+      fName: 'Аты-жөні', fDay: 'Күні', fMonth: 'Айы', fRole: 'Кім', fGroup: 'Топ немесе бөлім',
+      add: 'Қосу', apply: 'Қолдану', cancel: 'Бас тарту',
+      errName: 'Аты-жөнін жазыңыз.', errDate: 'Күні мен айын дұрыс көрсетіңіз.',
+      bulkTitle: 'Тізімді бірден қосу',
+      bulkHelp: 'Әр жолға бір адам: Аты-жөні; 15.03; студент; топ. Excel-ден көшіріп қоюға болады.',
+      bulkBtn: 'Тізімге қосу', bulkRes: 'Қосылды: {a}, өткізілді: {s}',
+      unsaved: 'Сақталмаған өзгерістер: {n}', save: 'Сайтқа сақтау', discard: 'Болдырмау',
+      saving: 'Сақталуда…', saveFail: 'Сақталмады. Қайталап көріңіз.',
+      readOnly: 'Бұл көріністе өзгертуге болмайды.', edit: 'Өзгерту', del: 'Жою'
+    },
+    ru: {
+      kicker: 'Дни рождения',
+      tag: 'Сегодня чей <em>праздник</em>?',
+      today: 'Сегодня', noToday: 'Сегодня именинников нет', nextUp: 'Следующий',
+      hb: 'С днём рождения!',
+      todayW: 'сегодня', tomorrowW: 'завтра', inDays: 'через {n} дн.',
+      soon: 'Ближайшие 30 дней', soonEmpty: 'В ближайшие 30 дней именинников нет.',
+      all: 'Все дни рождения', search: 'Поиск по имени', none: 'Ничего не найдено.',
+      allRoles: 'Все',
+      r_student: 'Студент', r_teacher: 'Преподаватель', r_staff: 'Сотрудник',
+      p_student: 'Студенты', p_teacher: 'Преподаватели', p_staff: 'Сотрудники',
+      emptyPublic: 'Список пока пуст. Дни рождения скоро появятся.',
+      emptyOwner: 'Список пуст. Добавьте первый день рождения в панели выше.',
+      footer: 'Дни рождения колледжа',
+      adminMode: 'Режим администратора', addTitle: 'Добавить день рождения', editTitle: 'Редактировать запись',
+      fName: 'Имя и фамилия', fDay: 'День', fMonth: 'Месяц', fRole: 'Кто', fGroup: 'Группа или отдел',
+      add: 'Добавить', apply: 'Применить', cancel: 'Отмена',
+      errName: 'Введите имя.', errDate: 'Проверьте день и месяц.',
+      bulkTitle: 'Добавить списком',
+      bulkHelp: 'Один человек в строке: Имя; 15.03; студент; группа. Можно вставить из Excel.',
+      bulkBtn: 'Добавить в список', bulkRes: 'Добавлено: {a}, пропущено: {s}',
+      unsaved: 'Несохранённых изменений: {n}', save: 'Сохранить на сайт', discard: 'Отменить',
+      saving: 'Сохраняю…', saveFail: 'Не удалось сохранить. Попробуйте ещё раз.',
+      readOnly: 'В этом режиме редактирование недоступно.', edit: 'Изменить', del: 'Удалить'
+    },
+    en: {
+      kicker: 'Birthdays',
+      tag: 'Whose <em>day</em> is it today?',
+      today: 'Today', noToday: 'No birthdays today', nextUp: 'Up next',
+      hb: 'Happy birthday!',
+      todayW: 'today', tomorrowW: 'tomorrow', inDays: 'in {n} days',
+      soon: 'Next 30 days', soonEmpty: 'No birthdays in the next 30 days.',
+      all: 'All birthdays', search: 'Search by name', none: 'Nothing found.',
+      allRoles: 'All',
+      r_student: 'Student', r_teacher: 'Teacher', r_staff: 'Staff',
+      p_student: 'Students', p_teacher: 'Teachers', p_staff: 'Staff',
+      emptyPublic: 'The list is empty for now. Birthdays will be added soon.',
+      emptyOwner: 'The list is empty. Add the first birthday in the panel above.',
+      footer: 'College birthdays',
+      adminMode: 'Admin mode', addTitle: 'Add a birthday', editTitle: 'Edit entry',
+      fName: 'Full name', fDay: 'Day', fMonth: 'Month', fRole: 'Role', fGroup: 'Group or department',
+      add: 'Add', apply: 'Apply', cancel: 'Cancel',
+      errName: 'Enter a name.', errDate: 'Check the day and month.',
+      bulkTitle: 'Add a list',
+      bulkHelp: 'One person per line: Name; 15.03; student; group. You can paste from Excel.',
+      bulkBtn: 'Add to list', bulkRes: 'Added: {a}, skipped: {s}',
+      unsaved: 'Unsaved changes: {n}', save: 'Save to site', discard: 'Discard',
+      saving: 'Saving…', saveFail: 'Could not save. Try again.',
+      readOnly: 'Editing is not available here.', edit: 'Edit', del: 'Delete'
+    }
+  };
+
+  var RESET = ':root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}';
+  var HEAD = '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>' + RESET + '</style></head><body>';
+
+  var saved = { people: [] };
+  try { saved = JSON.parse(document.getElementById('app-data').textContent) || saved; } catch (e) {}
+  if (!saved.people) saved.people = [];
+  var people = clone(saved.people);
+
+  var lang = 'kk', role = 'all', q = '';
+  var owner = false, art = null, editingId = null, busy = false, msg = '', bulkMsg = '', formErr = '';
+
+  function clone(a) { return JSON.parse(JSON.stringify(a)); }
+  function $(s) { return document.querySelector(s); }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function tr(k, v) {
+    var s = L[lang][k];
+    if (v) for (var x in v) s = s.replace('{' + x + '}', v[x]);
+    return s;
+  }
+  function uid() { return Math.random().toString(36).slice(2, 8); }
+
+  function pickLang() {
+    var h = (location.hash || '').replace('#', '');
+    if (L[h]) return h;
+    try { var s = localStorage.getItem('jihc-lang'); if (L[s]) return s; } catch (e) {}
+    var n = ((navigator.languages && navigator.languages[0]) || navigator.language || 'kk').slice(0, 2).toLowerCase();
+    return L[n] ? n : 'kk';
+  }
+  function setLang(l) {
+    lang = l;
+    try { localStorage.setItem('jihc-lang', l); } catch (e) {}
+    try { if (location.hash !== '#' + l) location.hash = l; } catch (e) {}
+    renderAll();
+  }
+
+  /* dates */
+  function leap(y) { return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0; }
+  function mk(y, m, d) { return (m === 2 && d === 29 && !leap(y)) ? new Date(y, 2, 1) : new Date(y, m - 1, d); }
+  function midnight() { var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function info(p, t0) {
+    var dt = mk(t0.getFullYear(), p.m, p.d);
+    if (dt < t0) dt = mk(t0.getFullYear() + 1, p.m, p.d);
+    return { p: p, left: Math.round((dt - t0) / 864e5) };
+  }
+  function fmtDate(m, d) {
+    var M = MONTHS[lang];
+    return lang === 'en' ? M.s[m - 1] + ' ' + d : d + ' ' + M.g[m - 1];
+  }
+  function fmtLong(now) {
+    var M = MONTHS[lang], d = now.getDate(), m = now.getMonth(), w = WEEK[lang][now.getDay()];
+    return lang === 'en' ? w + ', ' + M.n[m] + ' ' + d : d + ' ' + M.g[m] + ', ' + w;
+  }
+  function whenText(left) {
+    return left === 0 ? tr('todayW') : left === 1 ? tr('tomorrowW') : tr('inDays', { n: left });
+  }
+  function nameSort(a, b) { return a.p.n.localeCompare(b.p.n, lang); }
+
+  /* markup pieces */
+  function chip(t) { return '<span class="chip t-' + t + '">' + tr('r_' + t) + '</span>'; }
+  function acts(p) {
+    if (!owner) return '';
+    return '<div class="acts"><button type="button" data-act="edit" data-id="' + p.id + '">' + tr('edit') + '</button><button type="button" class="del" data-act="del" data-id="' + p.id + '">' + tr('del') + '</button></div>';
+  }
+  function card(x) {
+    var p = x.p, cls = 'card' + (x.left === 0 ? ' is-today' : x.left <= 7 ? ' is-soon' : '');
+    return '<article class="' + cls + '"><div class="dn"><b>' + p.d + '</b><span>' + MONTHS[lang].s[p.m - 1] + '</span></div>' +
+      '<div class="who"><h4>' + esc(p.n) + '</h4>' + (p.g ? '<p>' + esc(p.g) + '</p>' : '') + '</div>' +
+      '<div class="meta">' + chip(p.t) + '<span class="when">' + whenText(x.left) + '</span>' + acts(p) + '</div></article>';
+  }
+  function big(x) {
+    var p = x.p;
+    return '<article class="tcard"><span class="hb">' + tr('hb') + '</span><h3>' + esc(p.n) + '</h3>' +
+      (p.g ? '<p>' + esc(p.g) + '</p>' : '') + '<div class="chips-row">' + chip(p.t) + '</div>' + acts(p) + '</article>';
+  }
+
+  /* shell: built once so the curtain animation never replays */
+  function shell() {
+    $('#root').innerHTML =
+      '<header class="hdr"><div class="wrap"><div class="brand"><span class="badge">' + LOGO + '</span><b>JIHC</b></div><div class="lang" id="lang" role="group" aria-label="Language"></div></div></header>' +
+      '<section class="stage"><div class="floor"></div><div class="aperture"></div><div class="curtain l"></div><div class="curtain r"></div>' +
+      '<div class="center"><p class="kicker" id="k1"></p><div class="disc">' + LOGO + '</div><h1 class="tag" id="tg"></h1></div></section>' +
+      '<main class="wrap" id="app"></main><footer class="foot wrap" id="foot"></footer><div class="bar" id="bar" hidden></div>';
+  }
+  function renderChrome() {
+    document.documentElement.lang = lang;
+    var names = { kk: 'ҚАЗ', ru: 'РУС', en: 'ENG' };
+    $('#lang').innerHTML = ['kk', 'ru', 'en'].map(function (l) {
+      return '<button type="button" data-lang="' + l + '" aria-pressed="' + (l === lang) + '">' + names[l] + '</button>';
+    }).join('');
+    $('#k1').textContent = 'JIHC · ' + tr('kicker');
+    $('#tg').innerHTML = tr('tag');
+    $('#foot').textContent = 'JIHC · ' + tr('footer');
+  }
+
+  function adminPanel() {
+    var e = null, i;
+    if (editingId) for (i = 0; i < people.length; i++) if (people[i].id === editingId) e = people[i];
+    var M = MONTHS[lang].n;
+    var mo = M.map(function (n, k) { return '<option value="' + (k + 1) + '"' + (e && e.m === k + 1 ? ' selected' : '') + '>' + n + '</option>'; }).join('');
+    var ro = ['student', 'teacher', 'staff'].map(function (t) { return '<option value="' + t + '"' + (e && e.t === t ? ' selected' : '') + '>' + tr('r_' + t) + '</option>'; }).join('');
+    return '<section class="sec"><div class="admin" id="admin">' +
+      '<div class="admin-h"><span class="pill">' + tr('adminMode') + '</span><h3>' + tr(e ? 'editTitle' : 'addTitle') + '</h3></div>' +
+      '<div class="fields">' +
+      '<label class="f" for="f-name">' + tr('fName') + '<input id="f-name" type="text" autocomplete="off" value="' + (e ? esc(e.n) : '') + '"></label>' +
+      '<div class="f3">' +
+      '<label class="f" for="f-day">' + tr('fDay') + '<input id="f-day" type="number" inputmode="numeric" min="1" max="31" value="' + (e ? e.d : '') + '"></label>' +
+      '<label class="f" for="f-month">' + tr('fMonth') + '<select id="f-month">' + mo + '</select></label>' +
+      '<label class="f" for="f-role">' + tr('fRole') + '<select id="f-role">' + ro + '</select></label>' +
+      '</div>' +
+      '<label class="f" for="f-group">' + tr('fGroup') + '<input id="f-group" type="text" autocomplete="off" value="' + (e && e.g ? esc(e.g) : '') + '"></label>' +
+      '<p class="err" id="f-err">' + esc(formErr) + '</p>' +
+      '<div class="btnrow"><button type="button" class="btn primary" data-act="add">' + tr(e ? 'apply' : 'add') + '</button>' +
+      (e ? '<button type="button" class="btn" data-act="cancel">' + tr('cancel') + '</button>' : '') + '</div>' +
+      '</div><div class="sep"></div>' +
+      '<div class="admin-h"><h3>' + tr('bulkTitle') + '</h3></div>' +
+      '<p class="help">' + tr('bulkHelp') + '</p>' +
+      '<label class="f" for="f-bulk"><textarea id="f-bulk" spellcheck="false"></textarea></label>' +
+      '<div class="btnrow" style="margin-top:12px"><button type="button" class="btn" data-act="bulk">' + tr('bulkBtn') + '</button><span class="muted" id="bulk-msg">' + esc(bulkMsg) + '</span></div>' +
+      '</div></section>';
+  }
+
+  function renderApp() {
+    var t0 = midnight(), now = new Date(), h = '';
+    var all = people.map(function (p) { return info(p, t0); });
+    if (owner) h += adminPanel();
+    if (!people.length) {
+      h += '<section class="sec"><div class="empty"><p>' + tr(owner ? 'emptyOwner' : 'emptyPublic') + '</p></div></section>';
+    } else {
+      var td = all.filter(function (x) { return x.left === 0; }).sort(nameSort);
+      h += '<section class="sec"><div class="eyebrow">' + tr('today') + ' · ' + fmtLong(now) + '</div>';
+      if (td.length) {
+        h += '<div class="today-grid">' + td.map(big).join('') + '</div>';
+      } else {
+        var min = Math.min.apply(null, all.map(function (x) { return x.left; }));
+        var nx = all.filter(function (x) { return x.left === min; }).sort(nameSort).slice(0, 3);
+        h += '<h2 class="big">' + tr('noToday') + '</h2><p class="nextline">' + tr('nextUp') + ': <b>' +
+          nx.map(function (x) { return esc(x.p.n); }).join(', ') + '</b> · ' + fmtDate(nx[0].p.m, nx[0].p.d) + ' · ' + whenText(min) + '</p>';
+      }
+      h += '</section>';
+      var up = all.filter(function (x) { return x.left > 0 && x.left <= 30; })
+        .sort(function (a, b) { return a.left - b.left || nameSort(a, b); });
+      h += '<section class="sec"><h2 class="h2">' + tr('soon') + '</h2>' +
+        (up.length ? '<div class="list">' + up.map(card).join('') + '</div>' : '<p class="muted">' + tr('soonEmpty') + '</p>') + '</section>';
+      var counts = { all: people.length, student: 0, teacher: 0, staff: 0 };
+      people.forEach(function (p) { counts[p.t]++; });
+      var chips = [['all', tr('allRoles')], ['student', tr('p_student')], ['teacher', tr('p_teacher')], ['staff', tr('p_staff')]]
+        .map(function (c) {
+          return '<button type="button" class="chip-b" data-role="' + c[0] + '" aria-pressed="' + (role === c[0]) + '">' + c[1] + '<i>' + counts[c[0]] + '</i></button>';
+        }).join('');
+      h += '<section class="sec"><h2 class="h2">' + tr('all') + '</h2><div class="ctl">' +
+        '<input id="q" type="search" autocomplete="off" placeholder="' + esc(tr('search')) + '" value="' + esc(q) + '" aria-label="' + esc(tr('search')) + '">' +
+        '<div class="chips" id="chips">' + chips + '</div></div><div id="dir"></div></section>';
+    }
+    $('#app').innerHTML = h;
+    if (people.length) renderDir();
+  }
+
+  function renderDir() {
+    var el = $('#dir');
+    if (!el) return;
+    var t0 = midnight(), qq = q.trim().toLowerCase();
+    var list = people.filter(function (p) {
+      return (role === 'all' || p.t === role) && (!qq || (p.n + ' ' + (p.g || '')).toLowerCase().indexOf(qq) > -1);
+    });
+    if (!list.length) { el.innerHTML = '<p class="muted">' + tr('none') + '</p>'; return; }
+    var cm = t0.getMonth() + 1, h = '', m;
+    for (m = 1; m <= 12; m++) {
+      var items = list.filter(function (p) { return p.m === m; })
+        .map(function (p) { return info(p, t0); })
+        .sort(function (a, b) { return a.p.d - b.p.d || nameSort(a, b); });
+      if (!items.length) continue;
+      h += '<div class="mh' + (m === cm ? ' cur' : '') + '"><h3>' + MONTHS[lang].n[m - 1] + '</h3><span>' + items.length + '</span></div>' +
+        '<div class="list">' + items.map(card).join('') + '</div>';
+    }
+    el.innerHTML = h;
+  }
+
+  /* owner: draft and save */
+  function dirtyCount() {
+    var a = {}, b = {}, c = 0;
+    saved.people.forEach(function (p) { a[p.id] = JSON.stringify(p); });
+    people.forEach(function (p) { b[p.id] = 1; if (a[p.id] !== JSON.stringify(p)) c++; });
+    saved.people.forEach(function (p) { if (!b[p.id]) c++; });
+    return c;
+  }
+  function renderBar() {
+    var bar = $('#bar'), c = owner ? dirtyCount() : 0;
+    document.body.classList.toggle('hasbar', c > 0);
+    if (!owner || c === 0) { bar.hidden = true; return; }
+    bar.hidden = false;
+    bar.innerHTML = '<span class="bar-t">' + (busy ? tr('saving') : tr('unsaved', { n: c })) + (msg ? ' · ' + esc(msg) : '') + '</span>' +
+      '<span class="bar-b"><button type="button" class="btn" data-act="discard"' + (busy ? ' disabled' : '') + '>' + tr('discard') + '</button>' +
+      '<button type="button" class="btn primary" data-act="save"' + (busy ? ' disabled' : '') + '>' + tr('save') + '</button></span>';
+  }
+  function sortedPeople() {
+    return clone(people).sort(function (a, b) { return a.m - b.m || a.d - b.d || a.n.localeCompare(b.n); });
+  }
+  function buildDoc() {
+    var json = JSON.stringify({ people: sortedPeople() }).replace(/</g, '\\u003c');
+    var css = document.getElementById('app-style').textContent;
+    var js = document.getElementById('app-script').textContent;
+    return HEAD + '<title>JIHC Birthdays</title><meta name="claude:viewport-fit-sides" content="cover">' +
+      '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap">' +
+      '<style id="app-style">' + css + '</style><div id="root"></div>' +
+      '<script type="application/json" id="app-data">' + json + '</' + 'script>' +
+      '<script id="app-script">' + js + '</' + 'script></body></html>';
+  }
+  function save() {
+    if (!art || busy) return;
+    busy = true; msg = ''; renderBar();
+    art.publish(buildDoc()).catch(function (e) {
+      busy = false;
+      var c = e && e.code;
+      msg = c === 'conflict' ? '' : (c === 'not_writer' || c === 'not_granted' || c === 'capability_disabled') ? tr('readOnly') : tr('saveFail');
+      renderBar();
+    });
+  }
+
+  function val(id) { var el = document.getElementById(id); return el ? el.value : ''; }
+  function addOne() {
+    var name = val('f-name').trim(), d = parseInt(val('f-day'), 10), m = parseInt(val('f-month'), 10), t = val('f-role'), g = val('f-group').trim();
+    if (!name) { formErr = tr('errName'); return renderApp(); }
+    if (!(m >= 1 && m <= 12) || !(d >= 1 && d <= DIM[m - 1])) { formErr = tr('errDate'); return renderApp(); }
+    formErr = ''; bulkMsg = '';
+    if (editingId) {
+      people = people.map(function (p) { return p.id === editingId ? { id: p.id, n: name, m: m, d: d, t: t, g: g } : p; });
+      editingId = null;
+    } else {
+      people.push({ id: uid(), n: name, m: m, d: d, t: t, g: g });
+    }
+    renderApp(); renderBar();
+    var f = document.getElementById('f-name'); if (f) f.focus();
+  }
+  function parseRole(s) {
+    s = (s || '').toLowerCase();
+    if (/мұғал|преп|учит|teach|оқыт/.test(s)) return 'teacher';
+    if (/қызмет|сотруд|staff|персонал|әкімш|админ|admin/.test(s)) return 'staff';
+    return 'student';
+  }
+  function isRoleWord(s) { return /мұғал|преп|учит|teach|оқыт|қызмет|сотруд|staff|персонал|әкімш|админ|admin|студент|student|оқушы|обуч/i.test(s); }
+  function parseDate(s) {
+    var m = s.match(/^\s*\d{4}-(\d{1,2})-(\d{1,2})/);
+    if (m) return { m: +m[1], d: +m[2] };
+    m = s.match(/^\s*(\d{1,2})[.\-\/](\d{1,2})(?:[.\-\/]\d{2,4})?\s*$/);
+    return m ? { m: +m[2], d: +m[1] } : null;
+  }
+  function bulkAdd() {
+    var lines = val('f-bulk').split(/\r?\n/), a = 0, s = 0;
+    lines.forEach(function (line) {
+      if (!line.trim()) return;
+      var parts = (line.indexOf(';') > -1 || line.indexOf('\t') > -1 ? line.split(/[;\t]/) : line.split(',')).map(function (x) { return x.trim(); });
+      var name = parts[0], dt = null, t = null, g = [], i;
+      for (i = 1; i < parts.length; i++) {
+        if (!parts[i]) continue;
+        if (!dt && parseDate(parts[i])) dt = parseDate(parts[i]);
+        else if (!t && isRoleWord(parts[i])) t = parseRole(parts[i]);
+        else g.push(parts[i]);
+      }
+      if (!name || !dt || !(dt.m >= 1 && dt.m <= 12) || !(dt.d >= 1 && dt.d <= DIM[dt.m - 1])) { s++; return; }
+      var dup = people.some(function (p) { return p.n.toLowerCase() === name.toLowerCase() && p.m === dt.m && p.d === dt.d; });
+      if (dup) { s++; return; }
+      people.push({ id: uid(), n: name, m: dt.m, d: dt.d, t: t || 'student', g: g.join(', ') });
+      a++;
+    });
+    bulkMsg = tr('bulkRes', { a: a, s: s });
+    renderApp(); renderBar();
+  }
+
+  function onClick(e) {
+    var el = e.target.closest ? e.target.closest('[data-lang],[data-role],[data-act]') : null;
+    if (!el) return;
+    if (el.dataset.lang) return setLang(el.dataset.lang);
+    if (el.dataset.role) {
+      role = el.dataset.role;
+      var bs = document.querySelectorAll('#chips .chip-b');
+      for (var i = 0; i < bs.length; i++) bs[i].setAttribute('aria-pressed', String(bs[i].dataset.role === role));
+      return renderDir();
+    }
+    var act = el.dataset.act, id = el.dataset.id;
+    if (act === 'add') addOne();
+    else if (act === 'cancel') { editingId = null; formErr = ''; renderApp(); }
+    else if (act === 'edit') {
+      editingId = id; formErr = ''; renderApp();
+      var ad = document.getElementById('admin'); if (ad && ad.scrollIntoView) ad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    else if (act === 'del') {
+      people = people.filter(function (p) { return p.id !== id; });
+      if (editingId === id) editingId = null;
+      renderApp(); renderBar();
+    }
+    else if (act === 'bulk') bulkAdd();
+    else if (act === 'discard') { people = clone(saved.people); editingId = null; formErr = ''; bulkMsg = ''; msg = ''; renderApp(); renderBar(); }
+    else if (act === 'save') save();
+  }
+
+  function renderAll() { renderChrome(); renderApp(); renderBar(); }
+
+  function init() {
+    lang = pickLang();
+    shell();
+    renderAll();
+    $('#root').addEventListener('click', onClick);
+    $('#root').addEventListener('input', function (e) {
+      if (e.target && e.target.id === 'q') { q = e.target.value; renderDir(); }
+    });
+    $('#root').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && e.target && /^f-(name|day|group)$/.test(e.target.id)) { e.preventDefault(); addOne(); }
+    });
+    window.addEventListener('hashchange', function () {
+      var l = pickLang();
+      if (l !== lang) { lang = l; renderAll(); }
+    });
+    if (window.claude && window.claude.use) {
+      Promise.all([window.claude.use('user'), window.claude.use('artifact')]).then(function (r) {
+        if (!r[0] || !r[1]) return;
+        return r[0].isOwner().then(function (o) {
+          if (o) { owner = true; art = r[1]; renderApp(); renderBar(); }
+        });
+      }).catch(function () {});
+    }
+  }
+  init();
+})();
+</script></body></html>
